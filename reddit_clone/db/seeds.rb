@@ -8,7 +8,7 @@
 
 users = [User.create(username: 'username', password: 'password')]
 
-5.times {
+20.times {
   users << User.create(username: Faker::HarryPotter.character, password: 'passqword')
 }
 
@@ -21,16 +21,28 @@ posts = []
 subs.each do |each_sub|
   possibilities = (1..10).to_a.shuffle
   sub_ids = [possibilities.pop, possibilities.pop, possibilities.pop]
-  posts << Post.create(title: Faker::RickAndMorty.character, content: Faker::RickAndMorty.quote, url: 'google.com', author_id: 1, sub_ids: sub_ids )
+  posts << Post.create(title: Faker::RickAndMorty.character, content: Faker::RickAndMorty.quote, url: 'http://google.com', author_id: 1, sub_ids: sub_ids )
 end
 j = 0
+comments = []
 posts.each do |post|
 
   40.times do |i|
     possibilities = []
     possibilities = ((40*j)+2..(40*j)+i).to_a if i > 3
     possibilities += [nil]
-    Comment.create(content: Faker::Friends.quote, author_id: users.sample.id, parent_comment_id: possibilities.sample, post_id: post.id)
+    comments << Comment.create(content: Faker::Friends.quote, author_id: users.sample.id, parent_comment_id: possibilities.sample, post_id: post.id)
   end
+
   j += 1
 end
+
+100.times {
+  posts.sample.downvote(users.sample)
+  posts.sample.upvote(users.sample)
+}
+
+2000.times {
+  comments.sample.upvote(users.sample)
+  comments.sample.downvote(users.sample)
+}

@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.includes(:comments).find_by(id: params[:id])
+    @post = Post.includes(comments: [:author, :votes], votes: :user).find_by(id: params[:id])
   end
 
   def upvote

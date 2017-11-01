@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @comment = Comment.find_by(id: params[:id])
+    @comment = Comment.includes(votes: :user).find_by(id: params[:id])
     @reply_comment = Comment.new
   end
 

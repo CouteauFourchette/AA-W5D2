@@ -28,8 +28,7 @@
 </div>
 <br><br><br>
 <div class="post-comments">
-  <% @parent = nil %>
-  <%= render 'comment' %>
+  <%= render 'comment', parent_id: nil %>
 </div>
 
 <h2>History of votes</h2>
