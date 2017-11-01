@@ -1,0 +1,33 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  background: $primary;
+  color: white;
+  padding: 10px;
+  align-items: center;
+
+  .user_info, .sections {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .selected {
+    background-color: $primary;
+    color: $white;
+    border-bottom: 1px solid $white;
+  }
+}
+
+
+.sub-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  ul {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

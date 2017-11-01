@@ -1,0 +1,25 @@
+<nav class='sub-nav'>
+  <h1>Comment </h1>
+</nav>
+
+<%= @comment.content %>
+
+<div class="button-group">
+<%= button_to 'Upvote', comment_upvote_url(@comment), method: :post, class: 'upvote' %>
+<%= button_to 'Downvote',  comment_downvote_url(@comment), method: :post, class: 'downvote' %>
+</div>
+
+<form class="form reply-form" action="<%= post_comments_url(@comment.post) %>" method="post">
+  <%= auth_token %>
+  <input type="hidden" name="parent_comment_id" value="<%= @comment.id %>">
+  <textarea id="content" rows='10' name="comment[content]"><%= @reply_comment.content %></textarea>
+  <input type="submit" class='button submit' value="Post Reply">
+</form>
+
+<h2>History of votes</h2>
+<br>
+<ol>
+  <% @comment.votes.each do |vote| %>
+  <li><%= vote.upvote_type %>voted by <%= vote.user.username %></li>
+  <% end %>
+</ol>

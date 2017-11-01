@@ -1,0 +1,40 @@
+<nav class='sub-nav'>
+  <h1><a href="<%= @post.url %>"><%= @post.title %></a></h1>
+  <ul>
+    <li><%= link_to 'Edit', edit_post_url, class: 'button-outline' %></li>
+    <li><%= link_to 'Back to Posts', sub_url, class: 'button' %></li>
+  </ul>
+</nav>
+<div class="content-box">
+  <p>content:</p>
+  <p class='content'><%= @post.content %></p>
+</div>
+
+<div class="post-subs">
+  <h2><a href="<%= subs_url %>">subs:</a></h2>
+  <ul>
+    <% @post.subs.each do |each_sub| %>
+    <li><%= each_sub.title %></li>
+    <% end %>
+  </ul>
+</div>
+
+<h2>Comments: </h2>
+<br>
+<div class="button-group">
+  <%= link_to 'New Comment', new_post_comment_url(@post), class: 'button-outline' %>
+  <%= button_to 'Upvote', post_upvote_url(@post), method: :post, class: 'upvote' %>
+  <%= button_to 'Downvote',  post_downvote_url(@post), method: :post, class: 'downvote' %>
+</div>
+<br><br><br>
+<div class="post-comments">
+  <% @parent = nil %>
+  <%= render 'comment' %>
+</div>
+
+<h2>History of votes</h2>
+<ol>
+  <% @post.votes.each do |vote| %>
+  <li><%= vote.upvote_type %>voted by <%= vote.user.username %></li>
+  <% end %>
+</ol>

@@ -1,0 +1,12 @@
+<ol>
+  <% if @parent %>
+    <% sql_query = 'parent_comment_id = ?' %>
+  <% else %>
+    <% sql_query = 'parent_comment_id IS ?' %>
+  <% end %>
+  <% @post.comments.where(sql_query, @parent).each do |comment| %>
+    <li><a href="<%= comment_url(comment) %>"> (<%= comment.vote_count %>) <%= comment.content %></a> by <strong><%= comment.author.username %></strong></li>
+    <% @parent = comment %>
+    <%= render 'comment' if comment.child_comments.length > 0 %>
+  <% end %>
+</ol>

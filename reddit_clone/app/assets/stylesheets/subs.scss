@@ -1,0 +1,22 @@
+// Place all the styles related to the subs controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sub-title {
+  padding: 10px;
+  display: block;
+  background: white;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: $dark-grey;
+}
+
+.description-box {
+  margin-left: 10px;
+  margin-bottom: 50px;
+  p {
+    padding-left: 10px;
+  }
+}

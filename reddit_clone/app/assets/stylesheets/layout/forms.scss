@@ -1,0 +1,87 @@
+.form {
+  position: relative;
+  // width: 95%; #For Mobile
+  width: 500px;
+  margin: auto;
+
+  input[type='text'], input[type='password'], textarea {
+    padding: 15px;
+    border: 1px solid $secondary;
+    width: 100%;
+    margin: 5px;
+    color: $dark-grey;
+  }
+
+  input[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    border: 1px solid #cacece;
+  	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+  	padding: 9px;
+  	border-radius: 3px;
+  	position: relative;
+
+    &:checked {
+
+      &:after {
+        content: '\2714';
+        font-size: 14px;
+        position: absolute;
+        top: 0px;
+        left: 3px;
+        color: $primary;
+      }
+    }
+  }
+
+  input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: $secondary;
+    font-size: 0.875em;
+  }
+
+  input:focus, textarea:focus {
+    background   : $highlight;
+    outline      : none;
+  }
+
+  .styled-select {
+   width: 100%;
+   margin-left: 5px;
+   height: 34px;
+   background: url('arrow_mix.png') no-repeat right #ddd;
+   background-size: 40px 20px;
+   background-color: white;
+   border: 1px solid $secondary;
+   }
+
+  .styled-select select {
+     background: transparent;
+     width: 100%;
+     padding: 5px 8px;
+     font-size: 16px;
+     border: 0;
+     border-radius: 0;
+     height: 34px;
+     -webkit-appearance: none;
+   }
+
+   .styled-radio {
+     flex: display;
+     justify-content: space-around;
+   }
+
+
+  label {
+    padding: 10px;
+    font-size: 12px;
+    color: $secondary;
+  }
+
+  .submit {
+    width: 100%;
+    text-align: center;
+    background: $secondary;
+    border: 1px solid $secondary;
+  }
+}

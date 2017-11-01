@@ -1,0 +1,24 @@
+
+<nav class='sub-nav'>
+  <h1> <%= @sub.title %> </h1>
+  <ul>
+    <li><%= link_to 'Edit', edit_sub_url, class: 'button-outline' %></li>
+    <li><%= link_to 'Back to Subs', subs_url, class: 'button' %></li>
+  </ul>
+</nav>
+
+<div class="description-box">
+  <h2>Description: </h2>
+  <p><%= @sub.description %> </p>
+</div>
+
+<ul>
+<% @sub.posts.each do |post| %>
+<li><a href="<%= post_url(post) %>" class='sub-title'>(<%= post.vote_count %>) <%= post.title %></a></li>
+<% end %>
+</ul>
+
+<br>
+
+
+<%= link_to 'New Post', new_post_url, class: 'button' %>

@@ -1,0 +1,51 @@
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing:border-box
+}
+
+
+h1 {
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+h2 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.button {
+  background: $primary;
+  padding: 15px;
+  color: $white;
+  margin: 5px;
+}
+
+.button-outline {
+  @extend .button;
+  background: $white;
+  color: $primary;
+  border: 1px solid $primary;
+}
+
+.button-white {
+  @extend .button;
+  background: $white;
+  color: $primary;
+}
+
+@mixin button-color($color) {
+  @extend .button;
+  background: $color;
+  border: 1px solid $color;
+  color: $white;
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: flex-start;
+}

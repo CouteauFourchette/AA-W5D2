@@ -1,0 +1,17 @@
+<nav class='sub-nav'>
+  <h1> Edit Sub </h1>
+</nav>
+
+<% flash[:errors].try(:each) do |error| %>
+ <%= error %>
+<% end %>
+
+<form class="form" action="<%= sub_url %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+  <%= auth_token %>
+  <label for="title">Title*: </label>
+  <input id="title" type="text" name="sub[title]" value="<%= @sub.title %>">
+  <label for="description">Description: </label>
+  <textarea id="description" rows='10' name="sub[description]"><%= @sub.description %></textarea>
+  <input type="submit" class='button submit' value="Save Changes">
+</form>
